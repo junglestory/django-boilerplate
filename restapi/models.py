@@ -204,7 +204,7 @@ class News(models.Model):
     link_url = models.CharField(db_column='LINK_URL', max_length=200, blank=True, null=True)  # Field name made lowercase.
     writer = models.CharField(db_column='WRITER', max_length=50, blank=True, null=True)  # Field name made lowercase.
     content = models.TextField(db_column='CONTENT', blank=True, null=True)  # Field name made lowercase.
-    reg_date = models.DateTimeField(db_column='REG_DATE')  # Field name made lowercase.
+    reg_date = models.DateTimeField(db_column='REG_DATE', auto_now_add=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
