@@ -18,4 +18,12 @@ def news(request):
     datas = News.objects.all()
     serializer = NewsSerializer(datas, many=True)
 
-    return Response(serializer.data, content_type=u"application/json; charset=utf-8")    
+    return Response(serializer.data, content_type=u"application/json; charset=utf-8")
+
+
+@api_view(['GET'])
+def news_list(request, journal_id):
+    datas = News.objects.filter(journal_id=journal_id)
+    serializer = NewsSerializer(datas, many=True)
+    
+    return Response(serializer.data, content_type=u"application/json; charset=utf-8")
